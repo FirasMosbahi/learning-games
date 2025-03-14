@@ -13,9 +13,11 @@ export default function Fog({
 }) {
   const animate = useAnimation();
   const onShow = async () => {
-    if (puzzle.includes(index)) return;
-    console.log("Fog clicked");
-    await animate.start({ opacity: 0 }, { duration: 1 });
+    if (puzzle.includes(index)) {
+      await animate.start({ opacity: 1 }, { duration: 1 });
+    } else {
+      await animate.start({ opacity: 0 }, { duration: 1 });
+    }
   };
   useEffect(() => {
     onShow();
