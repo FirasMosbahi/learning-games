@@ -14,7 +14,7 @@ export default function Fog({
   const animate = useAnimation();
   const onShow = async () => {
     if (puzzle.includes(index)) {
-      await animate.start({ opacity: 1 }, { duration: 1 });
+      await animate.start({ opacity: 1 }, { duration: 0 });
     } else {
       await animate.start({ opacity: 0 }, { duration: 1 });
     }

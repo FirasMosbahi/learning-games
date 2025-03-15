@@ -3,3 +3,9 @@ export class OptionSelectType {
   options: string[];
   missing: string;
 }
+
+export class MusicBoxGameData {
+  level: number;
+  image: string;
+  data: OptionSelectType[];
+}
