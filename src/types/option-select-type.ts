@@ -9,3 +9,8 @@ export class MusicBoxGameData {
   image: string;
   data: OptionSelectType[];
 }
+
+export class AstronauteGameData {
+  level: number;
+  data: OptionSelectType[];
+}
