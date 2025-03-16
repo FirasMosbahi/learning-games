@@ -7,15 +7,18 @@ import { MUSIC_BOX_DATA } from "@learning-game/data/music-box-data";
 import { useEffect, useState } from "react";
 import FailPopup from "@learning-game/components/music-box/FailPopup";
 import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
-export default function Page() {
-  const searchParams = useSearchParams();
+export default function Page({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   useEffect(() => {
     setPuzzles(Array.from({ length: initialPuzzlePieces }, (_, i) => i));
   }, [searchParams]);
   const data = MUSIC_BOX_DATA.find(
-    (m) => m.level === Number.parseInt(searchParams.get("level") ?? "0"),
+    (m) => m.level === Number.parseInt((searchParams?.level ?? "0") as string),
   );
   const initialPuzzlePieces = 9;
   const [puzzles, setPuzzles] = useState<number[]>(

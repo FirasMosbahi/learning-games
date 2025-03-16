@@ -1,4 +1,3 @@
-import Image from "next/image";
 import GameCard from "@learning-game/components/landing-page/GameCard";
 import { LandingPageContent } from "@learning-game/data/landing-page-content";
 

@@ -21,7 +21,7 @@ export default function Fog({
   };
   useEffect(() => {
     onShow();
-  }, [onShow, puzzle, animate]);
+  }, [puzzle, animate]);
   return (
     <motion.div animate={animate}>
       <Image
