@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ASTRONAUTE_GAME_DATA } from "@learning-game/data/astronaute-data";
 import { useAnimation, motion } from "framer-motion";
+import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
+import { useSearchParams } from "next/navigation";
 
 const colorPalette = ["#B5B4D9", "#9CD3D9", "#F2D5CE", "#D0D991"];
 
@@ -14,12 +15,16 @@ export default function LevelPopup({
   level: number;
   onSuccess: () => void;
 }) {
-  const data = ASTRONAUTE_GAME_DATA.find((g) => g.level === level);
+  const searchParams = useSearchParams();
+  const data = SECOND_YEAR_GAME_DATA.find(
+    (g) =>
+      g.level === Number.parseInt((searchParams.get("level") ?? "0") as string),
+  );
   const [stage, setStage] = useState<number>(0);
   const cage1Animate = useAnimation();
   const cage2Animate = useAnimation();
   async function onClick(option: string) {
-    if (option === data.data[stage].missing) {
+    if (option === data.data[level].options[stage].missing) {
       if (stage === 0) {
         await cage1Animate.start({ opacity: 0 }, { duration: 1 });
         setStage(1);
@@ -36,9 +41,13 @@ export default function LevelPopup({
       </p>
       <div className="flex flex-row justify-between gap-[20%]">
         <div className="stage w-[50%] flex flex-col items-center justify-center gap-8 py-32">
-          <p className="text-black text-3xl">{data.data[stage].text}</p>
+          <div className="text-black text-3xl flex flex-row gap-x-8">
+            {data.data[level].text.map((t, i) => (
+              <p key={i}>{t}</p>
+            ))}
+          </div>
           <div className="grid grid-cols-2 gap-12">
-            {data.data[stage].options.map((option, i) => (
+            {data.data[level].options[stage].options.map((option, i) => (
               <button
                 className="text-3xl px-8 py-2 border border-solid border-transparent rounded-xl"
                 style={{ backgroundColor: colorPalette[i] }}

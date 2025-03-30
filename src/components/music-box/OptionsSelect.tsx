@@ -10,7 +10,11 @@ export default function OptionsSelect({
   const colorPalette = ["#B5B4D9", "#9CD3D9", "#F2D5CE", "#D0D991"];
   return (
     <div className="flex flex-col gap-8 items-center">
-      <p className="text-black text-3xl">{options.text}</p>
+      <div className="text-black text-3xl flex flex-row gap-x-8">
+        {options.text.map((text, i) => (
+          <p key={i}>{text}</p>
+        ))}
+      </div>
       <div className="flex flex-row gap-8">
         {options.options.map((option, index) => (
           <button

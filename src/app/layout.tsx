@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import Link from "next/link";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -20,7 +22,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>{children}</body>
+      <body className={`${poppins.variable} antialiased relative`}>
+        <Link
+          href="/"
+          className="absolute z-10 bg-blue-300 flex flex-row items-center justify-center top-10 right-10 size-10 border border-transparent rounded-full"
+        >
+          <Image
+            src="/home.png"
+            alt="home"
+            width={500}
+            height={500}
+            className="size-9"
+          />
+        </Link>
+        {children}
+      </body>
     </html>
   );
 }

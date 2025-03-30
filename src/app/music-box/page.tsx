@@ -3,11 +3,10 @@
 import Image from "next/image";
 import Fog from "@learning-game/components/music-box/Fog";
 import OptionsSelect from "@learning-game/components/music-box/OptionsSelect";
-import { MUSIC_BOX_DATA } from "@learning-game/data/music-box-data";
+import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
 import { useEffect, useState } from "react";
 import FailPopup from "@learning-game/components/music-box/FailPopup";
 import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
-import { useSearchParams } from "next/navigation";
 
 export default function Page({
   searchParams,
@@ -17,10 +16,10 @@ export default function Page({
   useEffect(() => {
     setPuzzles(Array.from({ length: initialPuzzlePieces }, (_, i) => i));
   }, [searchParams]);
-  const data = MUSIC_BOX_DATA.find(
+  const data = FIRST_YEAR_GAME_DATA.find(
     (m) => m.level === Number.parseInt((searchParams?.level ?? "0") as string),
   );
-  const initialPuzzlePieces = 9;
+  const initialPuzzlePieces = data.data.length;
   const [puzzles, setPuzzles] = useState<number[]>(
     Array.from({ length: initialPuzzlePieces }, (_, i) => i),
   );
