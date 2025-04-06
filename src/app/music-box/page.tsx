@@ -7,12 +7,9 @@ import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
 import { useEffect, useState } from "react";
 import FailPopup from "@learning-game/components/music-box/FailPopup";
 import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
+import { PageProps } from "@learning-game/types/page-props";
 
-export default function Page({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+export default function Page({ searchParams }: PageProps) {
   useEffect(() => {
     setPuzzles(Array.from({ length: initialPuzzlePieces }, (_, i) => i));
   }, [searchParams]);

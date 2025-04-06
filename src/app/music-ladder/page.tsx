@@ -6,12 +6,9 @@ import Image from "next/image";
 import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
 import { useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { PageProps } from "@learning-game/types/page-props";
 
-export default function Page({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+export default function Page({ searchParams }: PageProps) {
   const level = Number.parseInt((searchParams["level"] ?? "0") as string);
   const levelData = SECOND_YEAR_GAME_DATA.find((m) => m.level === level);
   const [progress, setProgress] = useState<number>(0);

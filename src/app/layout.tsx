@@ -36,7 +36,7 @@ export default function RootLayout({
             className="size-9"
           />
         </Link>
-        <Chat username="test" />
+        <Chat />
         {children}
       </body>
     </html>
