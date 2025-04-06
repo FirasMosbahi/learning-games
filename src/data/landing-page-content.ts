@@ -4,6 +4,7 @@ export const LandingPageContent = {
   callToAction: "! إبدأ التعلم",
   games: [
     {
+      year: 1,
       title: "السفينة",
       level: "السنة الأولى",
       description:
@@ -12,6 +13,7 @@ export const LandingPageContent = {
       gameUrl: "",
     },
     {
+      year: 1,
       title: "صندوق الموسيقى",
       level: "السنة الأولى",
       description:
@@ -20,6 +22,7 @@ export const LandingPageContent = {
       gameUrl: "/music-box",
     },
     {
+      year: 2,
       title: "رائد الفضاء",
       level: "السنة لثانية",
       description:
@@ -29,6 +32,7 @@ export const LandingPageContent = {
       gameUrl: "/astronaute",
     },
     {
+      year: 2,
       title: "صندوق الموسيقى",
       level: "السنة لثانية",
       description:

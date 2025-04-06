@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
+import Chat from "@learning-game/components/chat/Chat";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -25,7 +26,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} antialiased relative`}>
         <Link
           href="/"
-          className="absolute z-10 bg-blue-300 flex flex-row items-center justify-center top-10 right-10 size-10 border border-transparent rounded-full"
+          className="absolute z-10 bg-blue-300 flex flex-row items-center justify-center top-10 right-10 size-12 border border-transparent rounded-full"
         >
           <Image
             src="/home.png"
@@ -35,6 +36,7 @@ export default function RootLayout({
             className="size-9"
           />
         </Link>
+        <Chat username="test" />
         {children}
       </body>
     </html>

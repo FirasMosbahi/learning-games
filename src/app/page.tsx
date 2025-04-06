@@ -1,25 +1,33 @@
-import GameCard from "@learning-game/components/landing-page/GameCard";
-import { LandingPageContent } from "@learning-game/data/landing-page-content";
+import Link from "next/link";
 
-export default function Home() {
+export default function Page() {
   return (
-    <section className="text-gray-600 body-font w-screen min-h-screen bg-white">
-      <div className="container px-5 py-6 mx-auto max-w-7x1">
-        <div className="flex flex-wrap w-full mb-4 p-4">
-          <div className="w-full text-center mb-6 lg:mb-0">
-            <h1 className="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900">
-              {LandingPageContent.welcome}
-            </h1>
-            <h2>{LandingPageContent.explaining}</h2>
-            <h2>{LandingPageContent.callToAction}</h2>
-          </div>
-        </div>
-        <div className="flex flex-wrap mx-auto flex-row items-center justify-center gap-y-4 gap-x-8">
-          {LandingPageContent.games.map((game, index) => (
-            <GameCard key={index} {...game} />
-          ))}
-        </div>
+    <div className="w-screen h-screen text-xl flex flex-col items-center justify-center gap-4 text-black bg-white">
+      <h1 className="text-5xl">🎓 أهلاً بكم في محفوظاتي</h1>
+      <h2 className="my-4 text-3xl">
+        ! رفيق الطفل لحفظ وتعلّم المحفوظات بطريقة ممتعة
+      </h2>
+      <p className="text-center text-2xl my-8">
+        في محفوظاتي نؤمن بأن التعلم يبدأ من الحب والمرح
+        <br />
+        صمّمنا هذا التطبيق ليكون وسيلة تعليمية مبسّطة وآمنة للأطفال، تساعدهم على
+        حفظ المحفوطات
+      </p>
+      <p className="text-2xl">إختر مستواك لتبدأ التعلم</p>
+      <div className="flex flex-row-reverse text-xl gap-8">
+        <Link
+          href="/games?level=1"
+          className="bg-blue-400 border border-transparent rounded-xl text-white px-4 py-2"
+        >
+          السنة الأولى
+        </Link>
+        <Link
+          href="/games?level=2"
+          className="border-blue-400 border rounded-xl text-blue-400 px-4 py-2"
+        >
+          السنة الثانية
+        </Link>
       </div>
-    </section>
+    </div>
   );
 }
