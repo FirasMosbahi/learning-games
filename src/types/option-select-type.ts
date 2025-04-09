@@ -2,6 +2,8 @@ export class OptionSelectType {
   text: string[];
   options: string[];
   missing: string;
+  missingImage: string;
+  images: string[];
 }
 
 export class MultiSelectElement {
@@ -15,6 +17,7 @@ export class OptionMultiSelectType {
 }
 
 export class FirstYearGameData {
+  title: string;
   level: number;
   image: string;
   data: OptionSelectType[];

@@ -6,6 +6,13 @@ import { useEffect, useState } from "react";
 import { sleep } from "@learning-game/utils/sleep";
 import { useAnimation, motion } from "framer-motion";
 
+const levels = [
+  "المستوى الأول",
+  "المستوى الثاني",
+  "المستوى الثالث",
+  "المستوى الرابع",
+];
+
 const planetsPositions = [
   {
     top: "120px",

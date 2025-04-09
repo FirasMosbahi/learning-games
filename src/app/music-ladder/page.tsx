@@ -8,6 +8,13 @@ import { useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { PageProps } from "@learning-game/types/page-props";
 
+const levels = [
+  "المستوى الأول",
+  "المستوى الثاني",
+  "المستوى الثالث",
+  "المستوى الرابع",
+];
+
 export default function Page({ searchParams }: PageProps) {
   const level = Number.parseInt((searchParams["level"] ?? "0") as string);
   const levelData = SECOND_YEAR_GAME_DATA.find((m) => m.level === level);
@@ -29,7 +36,7 @@ export default function Page({ searchParams }: PageProps) {
   };
   return (
     <div className="w-screen h-screen bg-white flex flex-row items-center px-16 justify-between">
-      <LevelsIndicator />
+      <LevelsIndicator levels={levels} />
       <div className="relative w-[40%] h-[400px] overflow-y-hidden">
         <motion.div
           animate={animate}

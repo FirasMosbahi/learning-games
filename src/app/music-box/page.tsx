@@ -46,7 +46,7 @@ export default function Page({ searchParams }: PageProps) {
       )}
       <div className="w-full px-8 flex flex-row justify-between">
         <div>
-          <LevelsIndicator />
+          <LevelsIndicator levels={FIRST_YEAR_GAME_DATA.map((g) => g.title)} />
         </div>
         <div className="flex w-[80%] flex-col gap-6 items-center justify-start">
           <div className="relative max-w-[1000px] h-[450px]">
