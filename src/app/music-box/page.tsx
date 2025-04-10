@@ -4,18 +4,27 @@ import Image from "next/image";
 import Fog from "@learning-game/components/music-box/Fog";
 import OptionsSelect from "@learning-game/components/music-box/OptionsSelect";
 import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
-import { useEffect, useState } from "react";
+import { useEffect, useState, use, useMemo } from "react";
 import FailPopup from "@learning-game/components/music-box/FailPopup";
 import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
 import { PageProps } from "@learning-game/types/page-props";
+import { sleep } from "@learning-game/utils/sleep";
+import SuccessPopup from "@learning-game/components/general/SuccessPopup";
 
-export default function Page({ searchParams }: PageProps) {
+export default function Page(props: PageProps) {
   useEffect(() => {
     setPuzzles(Array.from({ length: initialPuzzlePieces }, (_, i) => i));
-  }, [searchParams]);
-  const data = FIRST_YEAR_GAME_DATA.find(
-    (m) => m.level === Number.parseInt((searchParams?.level ?? "0") as string),
+  }, [props.searchParams]);
+  const data = useMemo(
+    () =>
+      FIRST_YEAR_GAME_DATA.find(
+        (m) =>
+          m.level ===
+          Number.parseInt((props.searchParams?.level ?? "0") as string),
+      ),
+    [props.searchParams],
   );
+  const [success, setSuccess] = useState<boolean>(false);
   const initialPuzzlePieces = data.data.length;
   const [puzzles, setPuzzles] = useState<number[]>(
     Array.from({ length: initialPuzzlePieces }, (_, i) => i),
@@ -27,14 +36,19 @@ export default function Page({ searchParams }: PageProps) {
         const randomIndex = Math.floor(Math.random() * actualPuzzle.length);
         return actualPuzzle.filter((_, index) => index !== randomIndex);
       });
+      if (puzzles.length === 1) {
+        await sleep(2000);
+        setSuccess(true);
+      }
     } else {
       setShowFail(true);
     }
   }
   return (
     <div
-      className={`flex flex-col pt-8 items-center justify-center h-screen relative w-screen bg-white ${showFail ? "opacity-40" : ""}`}
+      className={`flex flex-col pt-8 items-center justify-center h-screen relative w-screen bg-white ${showFail ? "opacity-80" : ""}`}
     >
+      {success && <SuccessPopup level={data.level} />}
       {showFail && (
         <FailPopup
           onReset={() =>

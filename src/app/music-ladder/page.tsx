@@ -4,7 +4,7 @@ import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
 import Options from "@learning-game/components/music-ladder/Options";
 import Image from "next/image";
 import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
-import { useState } from "react";
+import { useState, use } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { PageProps } from "@learning-game/types/page-props";
 
@@ -15,7 +15,8 @@ const levels = [
   "المستوى الرابع",
 ];
 
-export default function Page({ searchParams }: PageProps) {
+export default function Page(props: PageProps) {
+  const searchParams = use(props.searchParams);
   const level = Number.parseInt((searchParams["level"] ?? "0") as string);
   const levelData = SECOND_YEAR_GAME_DATA.find((m) => m.level === level);
   const [progress, setProgress] = useState<number>(0);

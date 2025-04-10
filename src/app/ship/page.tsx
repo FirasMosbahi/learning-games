@@ -8,26 +8,26 @@ import Level from "@learning-game/components/ship/Level";
 import { PageProps } from "@learning-game/types/page-props";
 import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
 
-const planetsPositions = [
+const islandsPositions = [
   {
     top: "360px",
     left: "20px",
   },
   {
+    top: "180px",
+    left: "240px",
+  },
+  {
+    top: "420px",
+    left: "540px",
+  },
+  {
     top: "120px",
-    left: "280px",
+    left: "820px",
   },
   {
     top: "360px",
-    left: "620px",
-  },
-  {
-    top: "40px",
-    left: "900px",
-  },
-  {
-    top: "280px",
-    left: "1100px",
+    left: "1060px",
   },
 ];
 
@@ -54,8 +54,9 @@ const islands = [
   },
 ];
 
-export default function Page({ searchParams }: PageProps) {
-  const level = Number.parseInt((searchParams?.level ?? "0") as string);
+export default function Page(props: PageProps) {
+  const searchParams = use(props.searchParams);
+  const level = Number.parseInt((searchParams["level"] ?? "0") as string);
   console.log(level);
   const gameData = FIRST_YEAR_GAME_DATA.find((g) => g.level === level);
   const [stage, setStage] = useState<number>(0);
@@ -77,8 +78,8 @@ export default function Page({ searchParams }: PageProps) {
     await sleep(1000);
     await shipAnimate.start(
       {
-        top: planetsPositions[stage + 1].top,
-        left: planetsPositions[stage + 1].left,
+        top: islandsPositions[stage + 1].top,
+        left: islandsPositions[stage + 1].left,
       },
       { duration: 3 },
     );

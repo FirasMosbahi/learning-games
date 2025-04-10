@@ -2,7 +2,8 @@ import GameCard from "@learning-game/components/landing-page/GameCard";
 import { LandingPageContent } from "@learning-game/data/landing-page-content";
 import { PageProps } from "@learning-game/types/page-props";
 
-export default function Home({ searchParams }: PageProps) {
+export default async function Home(props: PageProps) {
+  const searchParams = await props.searchParams;
   const year = Number.parseInt((searchParams["level"] ?? "1") as string);
   return (
     <section className="text-gray-600 body-font w-screen min-h-screen bg-white">

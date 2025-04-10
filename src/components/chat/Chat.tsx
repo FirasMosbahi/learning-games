@@ -71,7 +71,7 @@ export default function Chat() {
         onClick={() => setIsOpen((value) => !value)}
       />
       {isOpen && (
-        <div className="w-[320px] h-[360px] mx-auto p-4 z-20 fixed bottom-8 right-8 bg-white border-2 rounded-xl border-blue-300">
+        <div className="w-[320px] h-[360px] mx-auto p-4 z-50 fixed bottom-8 right-8 bg-white border-2 rounded-xl border-blue-300">
           {name || (
             <form
               onSubmit={(e) => {

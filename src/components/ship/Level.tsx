@@ -23,27 +23,26 @@ export default function Level({
       <p className="w-full text-center text-xl text-black py-4">
         أكمل الأبيات الشعرية لتنتقل السفينة إلى الجزيرة التالية
       </p>
-      <div className="flex flex-row justify-between gap-[20%]">
-        <div className="stage w-[50%] flex flex-col items-center justify-center gap-8 py-32">
-          <div className="text-black text-3xl flex flex-row gap-x-8">
-            {option.text.map((t, index) => (
-              <p key={index}>{t}</p>
-            ))}
-          </div>
-          <div className="grid grid-cols-2 gap-12">
-            {option.images.map((option, i) => (
-              <Image
-                alt="ship level option"
-                width={500}
-                height={500}
-                key={i}
-                onClick={() => onClick(option)}
-                src={`/ship-images/${level}/${option}`}
-              >
-                {option}
-              </Image>
-            ))}
-          </div>
+      <div className="flex flex-row justify-between">
+        <div className="w-[40%] my-32 mx-8 text-black h-full justify-center items-center text-3xl flex flex-row gap-x-8">
+          {option.text.map((t, index) => (
+            <p className="w-full" key={index}>
+              {t}
+            </p>
+          ))}
+        </div>
+        <div className="w-[50%] flex flex-row flex-wrap justify-center items-center gap-12">
+          {option.images.map((option, i) => (
+            <Image
+              alt="ship level option"
+              width={500}
+              height={500}
+              key={i}
+              onClick={() => onClick(option)}
+              src={`/ship-images/${level}/${option}`}
+              className="w-[200px] h-[200px]"
+            />
+          ))}
         </div>
       </div>
     </div>

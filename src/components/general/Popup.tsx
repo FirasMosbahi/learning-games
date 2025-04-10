@@ -4,13 +4,17 @@ export default function Popup({
   children,
   title,
   onClose,
+  className,
 }: {
+  className?: string;
   children: React.ReactNode;
   title?: string;
   onClose: () => void;
 }) {
   return (
-    <div className="z-50 opacity-100 absolute top-[20%] left-[40%] bg-blue-400 border border-solid border-black rounded-xl w-[300px]">
+    <div
+      className={`z-50 opacity-100 absolute top-[20%] left-[40%] bg-blue-300 border border-solid border-black rounded-xl w-[300px] ${className}`}
+    >
       <div className="flex flex-row justify-between">
         {title && <p className="w-full text-center py-4">{title}</p>}
         <div className="flex flex-row justify-end w-full p-2">
