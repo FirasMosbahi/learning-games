@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { sleep } from "@learning-game/utils/sleep";
 import { useAnimation, motion } from "framer-motion";
 import Level from "@learning-game/components/ship/Level";
@@ -55,8 +55,7 @@ const islands = [
 ];
 
 export default function Page(props: PageProps) {
-  const searchParams = use(props.searchParams);
-  const level = Number.parseInt((searchParams["level"] ?? "0") as string);
+  const level = Number.parseInt((props.searchParams["level"] ?? "0") as string);
   console.log(level);
   const gameData = FIRST_YEAR_GAME_DATA.find((g) => g.level === level);
   const [stage, setStage] = useState<number>(0);
