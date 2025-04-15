@@ -7,6 +7,7 @@ import { useAnimation, motion } from "framer-motion";
 import Level from "@learning-game/components/ship/Level";
 import { PageProps } from "@learning-game/types/page-props";
 import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
+import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
 
 const islandsPositions = [
   {
@@ -95,6 +96,9 @@ export default function Page(props: PageProps) {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <div className="flex flex-row items-center py-12 px-12 justify-start">
+        <LevelsIndicator levels={FIRST_YEAR_GAME_DATA.map((g) => g.title)} />
+      </div>
       {showLevels && (
         <Level
           onSuccess={onLevelSuccess}
