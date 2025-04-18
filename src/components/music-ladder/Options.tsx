@@ -15,7 +15,7 @@ export default function Options({
   const [level, setLevel] = useState<number>(0);
   return (
     <div className="flex flex-col items-center gap-y-8">
-      <div className="text-2xl text-black flex flex-row justify-between gap-x-8">
+      <div className="text-2xl text-black grid grid-cols-2 gap-y-2 justify-between gap-x-8">
         {options.text.map((item, i) => (
           <p key={i}>{item}</p>
         ))}

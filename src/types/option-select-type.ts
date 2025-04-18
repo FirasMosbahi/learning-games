@@ -31,5 +31,6 @@ export class AstronauteGameData {
 export class SecondYearGameData {
   level: number;
   image: string;
+  title: string;
   data: OptionMultiSelectType[];
 }

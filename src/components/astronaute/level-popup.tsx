@@ -24,6 +24,8 @@ export default function LevelPopup({
   const cage1Animate = useAnimation();
   const cage2Animate = useAnimation();
   async function onClick(option: string) {
+    console.log(option);
+    console.log(data.data[level].options[stage].missing);
     if (option === data.data[level].options[stage].missing) {
       if (stage === 0) {
         await cage1Animate.start({ opacity: 0 }, { duration: 1 });
@@ -41,7 +43,7 @@ export default function LevelPopup({
       </p>
       <div className="flex flex-row justify-between gap-[20%]">
         <div className="stage w-[50%] flex flex-col items-center justify-center gap-8 py-32">
-          <div className="text-black text-3xl flex flex-row gap-x-8">
+          <div className="text-black text-3xl grid grid-cols-2 gap-y-4 gap-x-8">
             {data.data[level].text.map((t, i) => (
               <p key={i}>{t}</p>
             ))}
