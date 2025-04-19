@@ -8,6 +8,7 @@ export default function Page(props: PageProps) {
   const [currentAudio, setCurrentAudio] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const page = Number.parseInt((props.searchParams?.level ?? "0") as string);
+  const student = Number(props.searchParams?.student ?? "0");
   const handleImageClick = (audioFile: string) => {
     if (audioRef.current) {
       audioRef.current.pause();
@@ -15,7 +16,9 @@ export default function Page(props: PageProps) {
     }
 
     // Create new audio element
-    audioRef.current = new Audio(`/first-year-audio/${page}-${audioFile}.mp3`);
+    audioRef.current = new Audio(
+      `/${student === 1 ? "first-year-audio" : "second-year-audio"}/${page}-${audioFile}.mp3`,
+    );
     audioRef.current
       .play()
       .then(() => setCurrentAudio(audioFile))
@@ -29,7 +32,7 @@ export default function Page(props: PageProps) {
       />
       <div className="w-[60%]">
         <Image
-          src={`/music-pics/${page}.png`}
+          src={`/${student === 1 ? "first-year-music-pics" : "second-year-music-pics"}/${page}.${student === 1 ? "png" : "jpg"}`}
           className="w-full h-full max-h-screen"
           alt="music-pic"
           width={500}

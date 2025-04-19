@@ -3,6 +3,7 @@ import { LandingPageContent } from "@learning-game/data/landing-page-content";
 import { PageProps } from "@learning-game/types/page-props";
 import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
 import Link from "next/link";
+import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
 
 const colorPalette = ["#B5B4D9", "#9CD3D9", "#F2D5CE", "#D0D991"];
 
@@ -15,16 +16,28 @@ export default async function Home(props: PageProps) {
           تجارب الأداء
         </h1>
         <div className="flex flex-col gap-6">
-          {FIRST_YEAR_GAME_DATA.map((data, index) => (
-            <Link
-              className="px-4 py-2 text-xl w-32 text-center border border-transparent rounded-xl"
-              style={{ backgroundColor: colorPalette[index % 4] }}
-              href={`/music-play?level=${data.level}`}
-              key={index}
-            >
-              {data.title}
-            </Link>
-          ))}
+          {year === 1 &&
+            FIRST_YEAR_GAME_DATA.map((data, index) => (
+              <Link
+                className="px-4 py-2 text-xl w-32 text-center border border-transparent rounded-xl"
+                style={{ backgroundColor: colorPalette[index % 4] }}
+                href={`/music-play?level=${data.level}&student=1`}
+                key={index}
+              >
+                {data.title}
+              </Link>
+            ))}
+          {year === 2 &&
+            SECOND_YEAR_GAME_DATA.map((data, index) => (
+              <Link
+                className="px-4 py-2 text-xl w-40 text-center border border-transparent rounded-xl"
+                style={{ backgroundColor: colorPalette[index % 4] }}
+                href={`/music-play?level=${data.level}&student=2`}
+                key={index}
+              >
+                {data.title}
+              </Link>
+            ))}
         </div>
       </div>
       <div className="container px-5 py-6 mx-auto max-w-7x1">

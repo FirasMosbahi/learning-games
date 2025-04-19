@@ -383,7 +383,7 @@ export const SECOND_YEAR_GAME_DATA: SecondYearGameData[] = [
   {
     level: 6,
     image: "/music-box/guitare.png",
-    title: "شرَفُ الْعَمَلِ",
+    title: "نشيد السلامِ",
     data: [
       {
         text: [
