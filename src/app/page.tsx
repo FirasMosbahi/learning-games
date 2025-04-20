@@ -11,7 +11,7 @@ export default function Page() {
         في محفوظاتي نؤمن بأن التعلم يبدأ من الحب والمرح
         <br />
         صمّمنا هذا التطبيق ليكون وسيلة تعليمية مبسّطة وآمنة للأطفال، تساعدهم على
-        حفظ المحفوطات
+        حفظ المحفوظات
       </p>
       <p className="text-2xl">إختر مستواك لتبدأ التعلم</p>
       <div className="flex flex-row-reverse text-xl gap-8">
