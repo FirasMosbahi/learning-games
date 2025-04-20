@@ -97,7 +97,10 @@ export default function Page(props: PageProps) {
       }}
     >
       <div className="flex flex-row items-center py-12 px-12 justify-start">
-        <LevelsIndicator levels={FIRST_YEAR_GAME_DATA.map((g) => g.title)} />
+        <LevelsIndicator
+          level={Number.parseInt((props.searchParams.level ?? "0") as string)}
+          levels={FIRST_YEAR_GAME_DATA.map((g) => g.title)}
+        />
       </div>
       {showLevels && (
         <Level

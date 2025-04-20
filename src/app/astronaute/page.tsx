@@ -9,13 +9,6 @@ import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
 import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
 import { PageProps } from "@learning-game/types/page-props";
 
-const levels = [
-  "المستوى الأول",
-  "المستوى الثاني",
-  "المستوى الثالث",
-  "المستوى الرابع",
-];
-
 const planetsPositions = [
   {
     top: "120px",
@@ -115,9 +108,18 @@ export default function Page(props: PageProps) {
         <LevelsIndicator
           className="w-40"
           levels={SECOND_YEAR_GAME_DATA.map((g) => g.title)}
+          level={Number.parseInt((props.searchParams.level ?? "0") as string)}
         />
       </div>
-      {showLevels && <LevelPopup onSuccess={onLevelSuccess} level={level} />}
+      {showLevels && (
+        <LevelPopup
+          levelParam={Number.parseInt(
+            (props.searchParams.level ?? "0") as string,
+          )}
+          onSuccess={onLevelSuccess}
+          level={level}
+        />
+      )}
       {planets.map((p, i) => (
         <Image
           src={p.image}

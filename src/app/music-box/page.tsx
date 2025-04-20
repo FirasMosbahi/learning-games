@@ -4,7 +4,7 @@ import Image from "next/image";
 import Fog from "@learning-game/components/music-box/Fog";
 import OptionsSelect from "@learning-game/components/music-box/OptionsSelect";
 import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
-import { useEffect, useState, use, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import FailPopup from "@learning-game/components/music-box/FailPopup";
 import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
 import { PageProps } from "@learning-game/types/page-props";
@@ -60,7 +60,10 @@ export default function Page(props: PageProps) {
       )}
       <div className="w-full px-8 flex flex-row justify-between">
         <div>
-          <LevelsIndicator levels={FIRST_YEAR_GAME_DATA.map((g) => g.title)} />
+          <LevelsIndicator
+            level={Number.parseInt((props.searchParams.level ?? "0") as string)}
+            levels={FIRST_YEAR_GAME_DATA.map((g) => g.title)}
+          />
         </div>
         <div className="flex w-[80%] flex-col gap-6 items-center justify-start">
           <div className="relative max-w-[1000px] h-[450px]">

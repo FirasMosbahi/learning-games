@@ -4,22 +4,19 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useAnimation, motion } from "framer-motion";
 import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
-import { useSearchParams } from "next/navigation";
 
 const colorPalette = ["#B5B4D9", "#9CD3D9", "#F2D5CE", "#D0D991"];
 
 export default function LevelPopup({
   level,
   onSuccess,
+  levelParam,
 }: {
   level: number;
   onSuccess: () => void;
+  levelParam: number;
 }) {
-  const searchParams = useSearchParams();
-  const data = SECOND_YEAR_GAME_DATA.find(
-    (g) =>
-      g.level === Number.parseInt((searchParams.get("level") ?? "0") as string),
-  );
+  const data = SECOND_YEAR_GAME_DATA.find((g) => g.level === levelParam);
   const [stage, setStage] = useState<number>(0);
   const cage1Animate = useAnimation();
   const cage2Animate = useAnimation();
