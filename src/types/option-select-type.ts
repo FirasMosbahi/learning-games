@@ -20,6 +20,7 @@ export class FirstYearGameData {
   title: string;
   level: number;
   image: string;
+  sound: string;
   data: OptionSelectType[];
 }
 
@@ -31,6 +32,7 @@ export class AstronauteGameData {
 export class SecondYearGameData {
   level: number;
   image: string;
+  sound: string;
   title: string;
   data: OptionMultiSelectType[];
 }

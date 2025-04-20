@@ -5,9 +5,9 @@ import LevelPopup from "@learning-game/components/astronaute/level-popup";
 import { useEffect, useState } from "react";
 import { sleep } from "@learning-game/utils/sleep";
 import { useAnimation, motion } from "framer-motion";
-import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
 import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
 import { PageProps } from "@learning-game/types/page-props";
+import FailPopup from "@learning-game/components/general/FailPopup";
 
 const planetsPositions = [
   {
@@ -63,6 +63,7 @@ const planets = [
 export default function Page(props: PageProps) {
   const [level, setLevel] = useState<number>(0);
   const [showLevels, setShowLevels] = useState<boolean>(false);
+  const [isFailed, setIsFailed] = useState<boolean>(false);
   const shipAnimate = useAnimation();
   async function initialize() {
     setShowLevels(false);
@@ -104,18 +105,17 @@ export default function Page(props: PageProps) {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex flex-row items-center px-4 justify-start h-screen">
-        <LevelsIndicator
-          className="w-40"
-          levels={SECOND_YEAR_GAME_DATA.map((g) => g.title)}
-          level={Number.parseInt((props.searchParams.level ?? "0") as string)}
-        />
-      </div>
+      <FailPopup
+        show={isFailed}
+        onClose={() => setIsFailed(false)}
+        onReset={initialize}
+      />
       {showLevels && (
         <LevelPopup
           levelParam={Number.parseInt(
             (props.searchParams.level ?? "0") as string,
           )}
+          onFailure={() => setIsFailed(true)}
           onSuccess={onLevelSuccess}
           level={level}
         />

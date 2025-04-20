@@ -26,7 +26,12 @@ export default function SuccessPopup({ level }: { level: number }) {
     howl.play();
   }
   return (
-    <Popup title="" className="w-[700px] left-[0%]" onClose={() => {}}>
+    <Popup
+      audioSrc=""
+      title=""
+      className="w-[700px] left-[0%]"
+      onClose={() => {}}
+    >
       <div>
         <div className="text-2xl w-full text-center flex flex-col gap-y-4">
           <p>تهانينا لقد ربحت</p>

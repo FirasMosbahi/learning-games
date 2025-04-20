@@ -4,6 +4,7 @@ export const SECOND_YEAR_GAME_DATA: SecondYearGameData[] = [
   {
     level: 0,
     image: "/music-box/guitare.png",
+    sound: "/music-box-audio/guitare.mp3",
     title: "العَوْدُ إِلَى المَدْرَسَةِ",
     data: [
       {
@@ -61,6 +62,8 @@ export const SECOND_YEAR_GAME_DATA: SecondYearGameData[] = [
     level: 1,
     title: "حُلْمُ طِفْلِ",
     image: "/music-box/flut.png",
+    sound: "/music-box-audio/flut.mp3",
+
     data: [
       {
         text: [
@@ -121,6 +124,8 @@ export const SECOND_YEAR_GAME_DATA: SecondYearGameData[] = [
   {
     level: 2,
     image: "/music-box/drum.png",
+    sound: "/music-box-audio/drum.mp3",
+
     title: "الْوَلَدُ النَّظِيف ",
     data: [
       {
@@ -194,6 +199,8 @@ export const SECOND_YEAR_GAME_DATA: SecondYearGameData[] = [
   {
     level: 3,
     image: "/music-box/piano.png",
+    sound: "/music-box-audio/piano.mp3",
+
     title: "تَلْفَازٌ وَ حَاسُوبٌ",
     data: [
       {
@@ -257,6 +264,8 @@ export const SECOND_YEAR_GAME_DATA: SecondYearGameData[] = [
   {
     level: 4,
     image: "/music-box/drum.png",
+    sound: "/music-box-audio/drum.mp3",
+
     title: "هَكَذَا نَبْنِي الوَطَنْ",
     data: [
       {
@@ -322,6 +331,8 @@ export const SECOND_YEAR_GAME_DATA: SecondYearGameData[] = [
   {
     level: 5,
     image: "/music-box/flut.png",
+    sound: "/music-box-audio/flut.mp3",
+
     title: "شرَفُ الْعَمَلِ",
     data: [
       {
@@ -383,6 +394,8 @@ export const SECOND_YEAR_GAME_DATA: SecondYearGameData[] = [
   {
     level: 6,
     image: "/music-box/guitare.png",
+    sound: "/music-box-audio/guitare.mp3",
+
     title: "نشيد السلامِ",
     data: [
       {
@@ -452,6 +465,8 @@ export const SECOND_YEAR_GAME_DATA: SecondYearGameData[] = [
   {
     level: 7,
     image: "/music-box/piano.png",
+    sound: "/music-box-audio/piano.mp3",
+
     title: "دَرْسٌ مُفِيدٌِ",
     data: [
       {

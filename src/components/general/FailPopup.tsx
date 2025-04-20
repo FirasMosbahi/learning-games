@@ -10,11 +10,9 @@ export default function FailPopup({
   onReset: () => void;
 }) {
   return show ? (
-    <Popup onClose={onClose}>
+    <Popup audioSrc="/fail.mp3" onClose={onClose}>
       <div className="text-xl py-8">
-        <p className="text-3xl text-center">
-          للأسف <br /> لقد فشلت
-        </p>
+        <p className="text-3xl text-center">للأسف حاول مرة أخرى لا تستسلم !</p>
         <div className="flex flex-row justify-between mx-4 pt-8">
           <button
             onClick={onClose}

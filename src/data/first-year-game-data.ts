@@ -5,6 +5,7 @@ export const FIRST_YEAR_GAME_DATA: FirstYearGameData[] = [
     level: 0,
     title: "مَدْرَسَتِي",
     image: "/music-box/guitare.png",
+    sound: "/music-box-audio/guitare.mp3",
     data: [
       {
         text: ["اللقاءَ بِالْأَصْحَاب", "____ أحِبُّ فيِ"],
@@ -54,6 +55,8 @@ export const FIRST_YEAR_GAME_DATA: FirstYearGameData[] = [
     level: 1,
     title: "يَا أَبي",
     image: "/music-box/flut.png",
+    sound: "/music-box-audio/flut.mp3",
+
     data: [
       {
         text: ["ضُمَّنِي ضَمًّا قَوِيًّا", "يَا ____ حُلْوَ الْمُحَيَّا"],
@@ -103,6 +106,8 @@ export const FIRST_YEAR_GAME_DATA: FirstYearGameData[] = [
     level: 2,
     title: "الطِّفْلُ وَالمِرْآةُ",
     image: "/music-box/drum.png",
+    sound: "/music-box-audio/drum.mp3",
+
     data: [
       {
         text: ["مَا أَجْمَلَ الْحَيَاة", "____ قَالَتْ لِيَ"],
@@ -153,6 +158,8 @@ export const FIRST_YEAR_GAME_DATA: FirstYearGameData[] = [
     level: 3,
     title: "المَطَرُُْ",
     image: "/music-box/piano.png",
+    sound: "/music-box-audio/piano.mp3",
+
     data: [
       {
         text: ["وَيَنْهَمِرْ", "_____ يَأْتِي"],
@@ -202,6 +209,8 @@ export const FIRST_YEAR_GAME_DATA: FirstYearGameData[] = [
     level: 4,
     title: "المِهَنُُ",
     image: "/music-box/drum.png",
+    sound: "/music-box-audio/drum.mp3",
+
     data: [
       {
         text: ["_____ آلتِيُ", "إِنَّنِي النَّجَّارُ"],
@@ -251,6 +260,8 @@ export const FIRST_YEAR_GAME_DATA: FirstYearGameData[] = [
     level: 5,
     title: "الرَّبِيعُ",
     image: "/music-box/flut.png",
+    sound: "/music-box-audio/flut.mp3",
+
     data: [
       {
         text: [
@@ -318,6 +329,8 @@ export const FIRST_YEAR_GAME_DATA: FirstYearGameData[] = [
     level: 6,
     title: "الطَّاوُوسُ",
     image: "/music-box/guitare.png",
+    sound: "/music-box-audio/guitare.mp3",
+
     data: [
       {
         text: ["فِيِ ______ الْبَدِيعِ", "آنْظُرْ إِلَى الطَّاوُوسِ ُْ"],
@@ -368,6 +381,8 @@ export const FIRST_YEAR_GAME_DATA: FirstYearGameData[] = [
     level: 7,
     title: "عِيدُ الأُمَّهَاتِ",
     image: "/music-box/piano.png",
+    sound: "/music-box-audio/piano.mp3",
+
     data: [
       {
         text: ["تَعَالَيَا مَعِي هُنَاِ", "رِضَا أُخْتِي مُنَى  ُْ_____"],

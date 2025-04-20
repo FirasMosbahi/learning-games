@@ -10,10 +10,12 @@ const colorPalette = ["#B5B4D9", "#9CD3D9", "#F2D5CE", "#D0D991"];
 export default function LevelPopup({
   level,
   onSuccess,
+  onFailure,
   levelParam,
 }: {
   level: number;
   onSuccess: () => void;
+  onFailure: () => void;
   levelParam: number;
 }) {
   const data = SECOND_YEAR_GAME_DATA.find((g) => g.level === levelParam);
@@ -21,8 +23,6 @@ export default function LevelPopup({
   const cage1Animate = useAnimation();
   const cage2Animate = useAnimation();
   async function onClick(option: string) {
-    console.log(option);
-    console.log(data.data[level].options[stage].missing);
     if (option === data.data[level].options[stage].missing) {
       if (stage === 0) {
         await cage1Animate.start({ opacity: 0 }, { duration: 1 });
@@ -31,6 +31,8 @@ export default function LevelPopup({
         await cage2Animate.start({ opacity: 0 }, { duration: 1 });
         onSuccess();
       }
+    } else {
+      onFailure();
     }
   }
   return (

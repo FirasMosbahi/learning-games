@@ -1,12 +1,13 @@
 "use client";
 
-import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
 import Options from "@learning-game/components/music-ladder/Options";
 import Image from "next/image";
 import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
 import { useEffect, useMemo, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { PageProps } from "@learning-game/types/page-props";
+import FailPopup from "@learning-game/components/general/FailPopup";
+import MusicBoxPopup from "@learning-game/components/music-box/MusicBoxPopup";
 
 export default function Page(props: PageProps) {
   const level = Number.parseInt((props.searchParams["level"] ?? "0") as string);
@@ -16,6 +17,7 @@ export default function Page(props: PageProps) {
   );
   const [progress, setProgress] = useState<number>(0);
   const [isWin, setIsWin] = useState<boolean>(false);
+  const [isFailed, setIsFailed] = useState<boolean>(false);
   useEffect(() => {
     animate.set({ top: "-240px" });
     setProgress(0);
@@ -37,10 +39,19 @@ export default function Page(props: PageProps) {
   };
   return (
     <div className="w-screen h-screen bg-white flex flex-row items-center px-16 justify-between">
-      <LevelsIndicator
-        level={Number.parseInt((props.searchParams.level ?? "0") as string)}
-        levels={SECOND_YEAR_GAME_DATA.map((g) => g.title)}
-        className="w-40"
+      <FailPopup
+        show={isFailed}
+        onClose={() => setIsFailed(false)}
+        onReset={() => {
+          animate.set({ top: "-240px" });
+          setProgress(0);
+          setIsWin(false);
+        }}
+      />
+      <MusicBoxPopup
+        show={isWin}
+        onClose={() => setIsWin(false)}
+        musicSrc={levelData.sound}
       />
       <div className="relative w-[40%] h-[400px] overflow-y-hidden">
         <motion.div
@@ -65,7 +76,11 @@ export default function Page(props: PageProps) {
       </div>
       <div className="w-[35%]">
         {isWin || (
-          <Options onSuccess={onSuccess} options={levelData.data[progress]} />
+          <Options
+            onFailure={() => setIsFailed(true)}
+            onSuccess={onSuccess}
+            options={levelData.data[progress]}
+          />
         )}
       </div>
     </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
 import Chat from "@learning-game/components/chat/Chat";
+import BackArrow from "@learning-game/components/general/BackArrow";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -37,6 +38,7 @@ export default function RootLayout({
           />
         </Link>
         <Chat />
+        <BackArrow />
         {children}
       </body>
     </html>

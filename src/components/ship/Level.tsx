@@ -7,15 +7,19 @@ import { OptionSelectType } from "@learning-game/types/option-select-type";
 export default function Level({
   option,
   onSuccess,
+  onFailure,
   level,
 }: {
   option: OptionSelectType;
   onSuccess: () => void;
+  onFailure: () => void;
   level: string;
 }) {
   function onClick(image: string) {
     if (image === option.missingImage) {
       onSuccess();
+    } else {
+      onFailure();
     }
   }
   return (

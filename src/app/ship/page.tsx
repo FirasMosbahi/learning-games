@@ -7,7 +7,7 @@ import { useAnimation, motion } from "framer-motion";
 import Level from "@learning-game/components/ship/Level";
 import { PageProps } from "@learning-game/types/page-props";
 import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
-import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
+import FailPopup from "@learning-game/components/general/FailPopup";
 
 const islandsPositions = [
   {
@@ -60,15 +60,22 @@ export default function Page(props: PageProps) {
   console.log(level);
   const gameData = FIRST_YEAR_GAME_DATA.find((g) => g.level === level);
   const [stage, setStage] = useState<number>(0);
+  const [isFailed, setIsFailed] = useState<boolean>(false);
   const [showLevels, setShowLevels] = useState<boolean>(false);
   const shipAnimate = useAnimation();
   async function initialize() {
+    shipAnimate.set({
+      top: islandsPositions[0].top,
+      left: islandsPositions[0].left,
+    });
+    setShowLevels(false);
+    setStage(0);
     await sleep(3000);
     setShowLevels(true);
   }
   useEffect(() => {
     initialize();
-  }, []);
+  }, [props.searchParams]);
   async function onLevelSuccess() {
     if (stage === 3) {
       setShowLevels(false);
@@ -96,17 +103,17 @@ export default function Page(props: PageProps) {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex flex-row items-center py-12 px-12 justify-start">
-        <LevelsIndicator
-          level={Number.parseInt((props.searchParams.level ?? "0") as string)}
-          levels={FIRST_YEAR_GAME_DATA.map((g) => g.title)}
-        />
-      </div>
+      <FailPopup
+        show={isFailed}
+        onClose={() => setIsFailed(false)}
+        onReset={initialize}
+      />
       {showLevels && (
         <Level
           onSuccess={onLevelSuccess}
           option={gameData.data[stage]}
           level={gameData.level.toString()}
+          onFailure={() => setIsFailed(true)}
         />
       )}
       {islands.map((p, i) => (

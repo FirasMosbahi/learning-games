@@ -8,9 +8,11 @@ const colorPalette = ["#B5B4D9", "#9CD3D9", "#F2D5CE", "#D0D991"];
 export default function Options({
   options,
   onSuccess,
+  onFailure,
 }: {
   options: OptionMultiSelectType;
   onSuccess: () => void;
+  onFailure: () => void;
 }) {
   const [level, setLevel] = useState<number>(0);
   return (
@@ -27,10 +29,14 @@ export default function Options({
             style={{ backgroundColor: colorPalette[index] }}
             key={index}
             onClick={() => {
-              if (level === 0) setLevel(1);
-              else {
-                setLevel(0);
-                onSuccess();
+              if (option === options.options[level].missing) {
+                if (level === 0) setLevel(1);
+                else {
+                  setLevel(0);
+                  onSuccess();
+                }
+              } else {
+                onFailure();
               }
             }}
           >

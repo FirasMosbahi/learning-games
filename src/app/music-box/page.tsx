@@ -5,11 +5,10 @@ import Fog from "@learning-game/components/music-box/Fog";
 import OptionsSelect from "@learning-game/components/music-box/OptionsSelect";
 import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
 import { useEffect, useState, useMemo } from "react";
-import FailPopup from "@learning-game/components/music-box/FailPopup";
-import LevelsIndicator from "@learning-game/components/general/LevelsIndicator";
+import FailPopup from "@learning-game/components/general/FailPopup";
 import { PageProps } from "@learning-game/types/page-props";
 import { sleep } from "@learning-game/utils/sleep";
-import SuccessPopup from "@learning-game/components/general/SuccessPopup";
+import MusicBoxPopup from "@learning-game/components/music-box/MusicBoxPopup";
 
 export default function Page(props: PageProps) {
   useEffect(() => {
@@ -48,7 +47,7 @@ export default function Page(props: PageProps) {
     <div
       className={`flex flex-col pt-8 items-center justify-center h-screen relative w-screen bg-white ${showFail ? "opacity-80" : ""}`}
     >
-      {success && <SuccessPopup level={data.level} />}
+      {/*{success && <SuccessPopup level={data.level} />}*/}
       {showFail && (
         <FailPopup
           onReset={() =>
@@ -58,13 +57,12 @@ export default function Page(props: PageProps) {
           onClose={() => setShowFail(false)}
         />
       )}
+      <MusicBoxPopup
+        musicSrc={data.sound}
+        onClose={() => setSuccess(false)}
+        show={success}
+      />
       <div className="w-full px-8 flex flex-row justify-between">
-        <div>
-          <LevelsIndicator
-            level={Number.parseInt((props.searchParams.level ?? "0") as string)}
-            levels={FIRST_YEAR_GAME_DATA.map((g) => g.title)}
-          />
-        </div>
         <div className="flex w-[80%] flex-col gap-6 items-center justify-start">
           <div className="relative max-w-[1000px] h-[450px]">
             <div className="absolute grid grid-cols-3 z-10">

@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Popup({
   children,
   title,
   onClose,
   className,
+  audioSrc,
 }: {
   className?: string;
   children: React.ReactNode;
   title?: string;
   onClose: () => void;
+  audioSrc: string;
 }) {
+  useEffect(() => {
+    const audio = new Audio(audioSrc);
+    audio.play().catch((error) => {
+      console.error("Audio playback failed:", error);
+    });
+
+    return () => {
+      audio.pause();
+    };
+  }, []);
+
   return (
     <div
       className={`z-50 opacity-100 absolute top-[20%] left-[40%] bg-blue-300 border border-solid border-black rounded-xl w-[300px] ${className}`}
