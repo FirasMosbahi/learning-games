@@ -5,7 +5,6 @@ import LevelPopup from "@learning-game/components/astronaute/level-popup";
 import { useEffect, useState } from "react";
 import { sleep } from "@learning-game/utils/sleep";
 import { useAnimation, motion } from "framer-motion";
-import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
 import { PageProps } from "@learning-game/types/page-props";
 import FailPopup from "@learning-game/components/general/FailPopup";
 
