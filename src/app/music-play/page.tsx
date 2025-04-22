@@ -42,7 +42,7 @@ export default function Page(props: PageProps) {
       <div className="flex-1 grid grid-cols-2 gap-y-8">
         <div className="flex flex-row justify-center items-center">
           <Image
-            src="/music-pics/speed.png"
+            src="/first-year-music-pics/speed.png"
             className="w-[240px] h-[70px]"
             alt="speed"
             height={200}
@@ -51,7 +51,7 @@ export default function Page(props: PageProps) {
         </div>
         <div className="flex flex-row justify-center items-center">
           <Image
-            src="/music-pics/actor.png"
+            src="/first-year-music-pics/actor.png"
             className="w-[160px] h-[70px]"
             alt="speed"
             height={200}
@@ -60,7 +60,7 @@ export default function Page(props: PageProps) {
         </div>
         <div className="flex flex-col items-center justify-center cursor-pointer gap-4">
           <Image
-            src="/music-pics/quick.png"
+            src="/first-year-music-pics/quick.png"
             className="w-[240px] h-[60px]"
             alt="quick"
             width={400}
@@ -68,7 +68,7 @@ export default function Page(props: PageProps) {
             onClick={() => handleImageClick("man")}
           />
           <Image
-            src="/music-pics/slow.png"
+            src="/first-year-music-pics/slow.png"
             className="w-[240px] h-[50px] cursor-pointer"
             alt="slow"
             width={400}
@@ -78,7 +78,7 @@ export default function Page(props: PageProps) {
         </div>
         <div className="flex flex-col items-center justify-center">
           <Image
-            src="/music-pics/man.png"
+            src="/first-year-music-pics/man.png"
             className="w-[160px] h-[160px] mx-4"
             alt="man"
             height={400}
@@ -87,7 +87,7 @@ export default function Page(props: PageProps) {
         </div>
         <div className="flex flex-col items-center justify-center gap-4">
           <Image
-            src="/music-pics/quick.png"
+            src="/first-year-music-pics/quick.png"
             className="w-[240px] h-[60px] cursor-pointer"
             alt="quick"
             width={400}
@@ -95,7 +95,7 @@ export default function Page(props: PageProps) {
             onClick={() => handleImageClick("woman")}
           />
           <Image
-            src="/music-pics/slow.png"
+            src="/first-year-music-pics/slow.png"
             className="w-[240px] h-[50px] cursor-pointer"
             alt="slow"
             width={400}
@@ -105,7 +105,7 @@ export default function Page(props: PageProps) {
         </div>
         <div className="flex flex-col items-center justify-center">
           <Image
-            src="/music-pics/woman.png"
+            src="/first-year-music-pics/woman.png"
             className="w-[160px] h-[160px] mx-4"
             alt="man"
             height={400}
@@ -114,7 +114,7 @@ export default function Page(props: PageProps) {
         </div>
         <div className="flex flex-col items-center justify-center gap-4">
           <Image
-            src="/music-pics/quick.png"
+            src="/first-year-music-pics/quick.png"
             className="w-[240px] h-[60px] cursor-pointer"
             alt="quick"
             width={400}
@@ -122,7 +122,7 @@ export default function Page(props: PageProps) {
             onClick={() => handleImageClick("kid")}
           />
           <Image
-            src="/music-pics/slow.png"
+            src="/first-year-music-pics/slow.png"
             className="w-[240px] h-[50px] cursor-pointer"
             alt="slow"
             width={400}
@@ -132,7 +132,7 @@ export default function Page(props: PageProps) {
         </div>
         <div className="flex flex-col items-center justify-center">
           <Image
-            src="/music-pics/kid.png"
+            src="/first-year-music-pics/kid.png"
             className="w-[160px] h-[160px] mx-4"
             alt="man"
             height={400}
