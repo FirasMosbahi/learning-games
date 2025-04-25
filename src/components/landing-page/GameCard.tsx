@@ -17,7 +17,7 @@ export default function GameCard({
   gameUrl,
 }: GameCardProps) {
   return (
-    <div className="bg-white flex flex-row-reverse max-w-[95%] gap-16 max-h-[240px] justify-between border border-blue-400 rounded-xl p-2">
+    <div className="bg-white flex flex-row-reverse max-w-[80%] gap-16 max-h-[240px] justify-between border border-blue-400 rounded-xl p-2">
       <Image
         height={400}
         width={400}
@@ -25,7 +25,7 @@ export default function GameCard({
         src={imageUrl}
         alt={title}
       />
-      <div className="text-right flex flex-col justify-center items-end">
+      <div className="text-right min-w-[800px] flex flex-col justify-center items-end">
         <div>
           <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
             {level}

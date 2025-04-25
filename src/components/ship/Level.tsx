@@ -23,14 +23,14 @@ export default function Level({
     }
   }
   return (
-    <div className="z-30 opacity-100 absolute top-[10%] left-[10%] bg-white border border-solid border-black rounded-xl w-[80%] h-[80%]">
+    <div className="z-30 opacity-100 absolute top-[10%] left-[10%] bg-white border border-solid border-black rounded-xl min-w-[80%] h-[80%]">
       <p className="w-full text-center text-xl text-black py-4">
         أكمل الأبيات الشعرية لتنتقل السفينة إلى الجزيرة التالية
       </p>
       <div className="flex flex-row justify-between">
-        <div className="w-[40%] my-32 mx-8 text-black h-full justify-center items-center text-3xl flex flex-row gap-x-8">
+        <div className="w-[70%] my-32 mx-2 text-black h-full justify-center items-center text-3xl flex flex-row gap-x-8">
           {option.text.map((t, index) => (
-            <p className="w-full" key={index}>
+            <p className="w-full text-nowrap" key={index}>
               {t}
             </p>
           ))}
