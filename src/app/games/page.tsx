@@ -1,16 +1,19 @@
 import GameCard from "@learning-game/components/landing-page/GameCard";
 import { LandingPageContent } from "@learning-game/data/landing-page-content";
 import { PageProps } from "@learning-game/types/page-props";
-import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
-import Link from "next/link";
-import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
-
-const colorPalette = ["#B5B4D9", "#9CD3D9", "#F2D5CE", "#D0D991"];
 
 export default async function Home(props: PageProps) {
   const year = Number.parseInt((props.searchParams["level"] ?? "1") as string);
   return (
-    <section className="flex flex-row text-gray-600 body-font w-screen min-h-screen bg-white">
+    <section
+      className="flex flex-row text-gray-600 body-font w-screen min-h-screen bg-white"
+      style={{
+        backgroundImage: `url('/background/4.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container px-5 py-6 mx-auto max-w-7x1">
         <div className="flex flex-wrap w-full mb-4 p-4">
           <div className="w-full text-center mb-6 lg:mb-0">

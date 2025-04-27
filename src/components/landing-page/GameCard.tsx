@@ -17,15 +17,15 @@ export default function GameCard({
   gameUrl,
 }: GameCardProps) {
   return (
-    <div className="bg-white flex flex-row-reverse max-w-[80%] gap-16 max-h-[240px] justify-between border border-blue-400 rounded-xl p-2">
+    <div className="bg-white opacity-80 flex flex-row-reverse max-w-[80%] gap-16 max-h-[240px] justify-between border border-blue-400 rounded-xl p-2">
       <Image
         height={400}
         width={400}
-        className="h-[220px] w-[250px] rounded object-cover object-center mb-6"
+        className="h-[220px] w-[250px] opacity-100 rounded object-cover object-center mb-6"
         src={imageUrl}
         alt={title}
       />
-      <div className="text-right min-w-[800px] flex flex-col justify-center items-end">
+      <div className="text-right min-w-[800px] opacity-100 flex flex-col justify-center items-end">
         <div>
           <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
             {level}

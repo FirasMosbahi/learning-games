@@ -46,6 +46,12 @@ export default function Page(props: PageProps) {
   return (
     <div
       className={`flex flex-col pt-8 items-center justify-center h-screen relative w-screen bg-white ${showFail ? "opacity-80" : ""}`}
+      style={{
+        backgroundImage: `url('/background/2.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       {/*{success && <SuccessPopup level={data.level} />}*/}
       {showFail && (

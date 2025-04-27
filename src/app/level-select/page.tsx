@@ -5,7 +5,15 @@ import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data
 
 export default function Page(props: PageProps) {
   return (
-    <div className="w-screen h-screen bg-white flex flex-col items-center">
+    <div
+      className="w-screen h-screen bg-white flex flex-col items-center"
+      style={{
+        backgroundImage: `url('/background/1.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <h1 className="text-center text-black text-5xl py-8">اختر أنشودة</h1>
       <div className="w-[480px] my-16 grid grid-cols-3 gap-x-4 gap-y-8 z-50 gap-6 items-center justify-center">
         {props.searchParams.level === "1" &&

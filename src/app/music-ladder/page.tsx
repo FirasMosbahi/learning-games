@@ -38,7 +38,15 @@ export default function Page(props: PageProps) {
     }
   };
   return (
-    <div className="w-screen h-screen bg-white flex flex-row items-center px-16 justify-between">
+    <div
+      className="w-screen h-screen bg-white flex flex-row items-center px-16 justify-between"
+      style={{
+        backgroundImage: `url('/background/8.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <FailPopup
         show={isFailed}
         onClose={() => setIsFailed(false)}

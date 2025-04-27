@@ -2,7 +2,15 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="w-screen h-screen text-xl flex flex-col items-center justify-center gap-4 text-black bg-white">
+    <div
+      className="w-screen h-screen text-xl flex flex-col items-center justify-center gap-4 text-black bg-white"
+      style={{
+        backgroundImage: `url('/background/3.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <h1 className="text-5xl">🎓 أهلاً بكم في محفوظاتي</h1>
       <h2 className="my-4 text-3xl">
         ! رفيق الطفل لحفظ وتعلّم المحفوظات بطريقة ممتعة
