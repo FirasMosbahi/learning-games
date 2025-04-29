@@ -7,6 +7,7 @@ import { sleep } from "@learning-game/utils/sleep";
 import { useAnimation, motion } from "framer-motion";
 import { PageProps } from "@learning-game/types/page-props";
 import FailPopup from "@learning-game/components/general/FailPopup";
+import SuccessPopup from "@learning-game/components/general/SuccessPopup";
 
 const planetsPositions = [
   {
@@ -62,6 +63,7 @@ const planets = [
 export default function Page(props: PageProps) {
   const [level, setLevel] = useState<number>(0);
   const [showLevels, setShowLevels] = useState<boolean>(false);
+  const [isWinner, setIsWinner] = useState<boolean>(false);
   const [isFailed, setIsFailed] = useState<boolean>(false);
   const shipAnimate = useAnimation();
   async function initialize() {
@@ -80,6 +82,9 @@ export default function Page(props: PageProps) {
   async function onLevelSuccess() {
     if (level === 1) {
       setShowLevels(false);
+    }
+    if (level === 2) {
+      setIsWinner(true);
     }
     setShowLevels(false);
     setLevel((l) => l + 1);
@@ -109,6 +114,7 @@ export default function Page(props: PageProps) {
         onClose={() => setIsFailed(false)}
         onReset={initialize}
       />
+      <SuccessPopup show={isWinner} onClose={() => setIsWinner(false)} />
       {showLevels && (
         <LevelPopup
           levelParam={Number.parseInt(

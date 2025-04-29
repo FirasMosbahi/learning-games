@@ -8,6 +8,7 @@ import Level from "@learning-game/components/ship/Level";
 import { PageProps } from "@learning-game/types/page-props";
 import { FIRST_YEAR_GAME_DATA } from "@learning-game/data/first-year-game-data";
 import FailPopup from "@learning-game/components/general/FailPopup";
+import SuccessPopup from "@learning-game/components/general/SuccessPopup";
 
 const islandsPositions = [
   {
@@ -60,6 +61,7 @@ export default function Page(props: PageProps) {
   console.log(level);
   const gameData = FIRST_YEAR_GAME_DATA.find((g) => g.level === level);
   const [stage, setStage] = useState<number>(0);
+  const [isWinner, setIsWinner] = useState<boolean>(false);
   const [isFailed, setIsFailed] = useState<boolean>(false);
   const [showLevels, setShowLevels] = useState<boolean>(false);
   const shipAnimate = useAnimation();
@@ -79,6 +81,9 @@ export default function Page(props: PageProps) {
   async function onLevelSuccess() {
     if (stage === 3) {
       setShowLevels(false);
+    }
+    if (stage === 4) {
+      setIsWinner(true);
     }
     setShowLevels(false);
     setStage((l) => l + 1);
@@ -103,6 +108,7 @@ export default function Page(props: PageProps) {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <SuccessPopup show={isWinner} onClose={() => setIsWinner(false)} />
       <FailPopup
         show={isFailed}
         onClose={() => setIsFailed(false)}

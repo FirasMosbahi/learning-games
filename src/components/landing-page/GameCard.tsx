@@ -17,7 +17,7 @@ export default function GameCard({
   gameUrl,
 }: GameCardProps) {
   return (
-    <div className="bg-white opacity-80 flex flex-row-reverse max-w-[80%] gap-16 max-h-[240px] justify-between border border-blue-400 rounded-xl p-2">
+    <div className="bg-white opacity-80 flex flex-row-reverse max-w-[80%] min-w-[980px] gap-16 max-h-[240px] justify-between border border-blue-400 rounded-xl p-2">
       <Image
         height={400}
         width={400}

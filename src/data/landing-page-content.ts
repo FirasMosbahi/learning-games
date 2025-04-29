@@ -5,6 +5,15 @@ export const LandingPageContent = {
   games: [
     {
       year: 1,
+      title: "تجربة الأداء",
+      level: "السنة الأولى",
+      description:
+        "يكتشف الطفل المحفوظات عن طريق الإستماع لها بأصوات و سرعات مختلفة .",
+      imageUrl: "/landing-page/music-play.jpg",
+      gameUrl: "/level-select?level=1&game=music-play",
+    },
+    {
+      year: 1,
       title: "السفينة",
       level: "السنة الأولى",
       description:
@@ -22,13 +31,13 @@ export const LandingPageContent = {
       gameUrl: "/level-select?level=1&game=music-box",
     },
     {
-      year: 1,
+      year: 2,
       title: "تجربة الأداء",
-      level: "السنة الأولى",
+      level: "السنة الثانية",
       description:
         "يكتشف الطفل المحفوظات عن طريق الإستماع لها بأصوات و سرعات مختلفة .",
       imageUrl: "/landing-page/music-play.jpg",
-      gameUrl: "/level-select?level=1&game=music-play",
+      gameUrl: "/level-select?level=2&game=music-play",
     },
     {
       year: 2,
@@ -48,15 +57,6 @@ export const LandingPageContent = {
         "في هذه النسخة من اللعبة، يتعين على الطفل تسلق سلم موسيقي للوصول إلى الصندوق الموسيقي عن طريق إكمال الأبيات الناقصة. عند كل مرحلة، يوزع المساعد الذكي بطاقات صوتية غير مكتوبة تحتوي على كلمات، وعلى الطفل الاستماع واختيار الكلمة المناسبة لوضعها في البيت الشعري. كل إجابة صحيحة تسمح له بالصعود درجة في السلم حتى يصل إلى الصندوق الموسيقي في النهاية، حيث يكتشف الآلة الموسيقية المخفية.",
       imageUrl: "/landing-page/music-box2.jpeg",
       gameUrl: "/level-select?level=2&game=music-ladder",
-    },
-    {
-      year: 2,
-      title: "تجربة الأداء",
-      level: "السنة الثانية",
-      description:
-        "يكتشف الطفل المحفوظات عن طريق الإستماع لها بأصوات و سرعات مختلفة .",
-      imageUrl: "/landing-page/music-play.jpg",
-      gameUrl: "/level-select?level=2&game=music-play",
     },
   ],
 };
