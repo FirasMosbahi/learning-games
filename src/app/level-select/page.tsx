@@ -14,7 +14,7 @@ export default function Page(props: PageProps) {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <h1 className="text-center text-black text-5xl py-8">اختر أنشودة</h1>
+      <h1 className="text-center text-black text-5xl py-8">قائمة المحتويات</h1>
       <div className="w-[480px] my-16 grid grid-cols-3 gap-x-4 gap-y-8 z-50 gap-6 items-center justify-center">
         {props.searchParams.level === "1" &&
           FIRST_YEAR_GAME_DATA.map((l, i) => (

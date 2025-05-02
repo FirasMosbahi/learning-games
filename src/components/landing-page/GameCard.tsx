@@ -30,10 +30,10 @@ export default function GameCard({
           <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
             {level}
           </h3>
-          <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
+          <h2 className="text-4xl text-gray-900 font-medium title-font mb-4">
             {title}
           </h2>
-          <p className="leading-relaxed text-base mb-4">{description}</p>
+          {/*<p className="leading-relaxed text-base mb-4">{description}</p>*/}
         </div>
         <Link
           href={gameUrl}
