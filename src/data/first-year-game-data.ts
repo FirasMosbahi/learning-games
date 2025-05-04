@@ -443,4 +443,56 @@ export const FIRST_YEAR_GAME_DATA: FirstYearGameData[] = [
       },
     ],
   },
+  {
+    level: 8,
+    title: "نشيد العطلةِ",
+    image: "/music-box/flut.png",
+    sound: "/music-box-audio/flut.mp3",
+
+    data: [
+      {
+        text: ["وانقضى العام جهادا وكفاح", "أقبل _____ ضحوكا كالصباح"],
+        missing: "الصيف",
+        options: ["الخريف", "الشتاء", "الصيف"],
+        missingImage: "1.jpg",
+        images: ["1.jpg", "2.jpg", "3.jpg"],
+      },
+      {
+        text: ["سيقضي الصيف لهوا وانشراح", "_____ كل من كد فقد نال"],
+        missing: "النجاح",
+        options: ["التعب", "الاجتهاد", "النجاح"],
+        missingImage: "4.jpg",
+        images: ["4.jpg", "5.jpg", "6.jpg"],
+      },
+      {
+        text: ["للنّسيم العذب في وقت الأصيل", "للرمال البيض ______ الجميل"],
+        missing: "للبحر",
+        options: ["للجبل", "للبيت", "للبحر"],
+        missingImage: "7.jpg",
+        images: ["7.jpg", "8.jpg", "9.jpg"],
+      },
+      {
+        text: ["نقطع الأيام في _____ وظل"],
+        missing: "شمس",
+        options: ["مطر", "سحاب", "شمس"],
+        missingImage: "10.jpg",
+        images: ["10.jpg", "11.jpg", "12.jpg"],
+      },
+
+      {
+        text: ["زاخرا بالأنس والجوّ اللطيف", "_____ يا بني الدّرس تعالوا"],
+        missing: "للمصيف",
+        options: ["للمدرسة", "لحديقة اللعب", "للمصيف"],
+        missingImage: "13.jpg",
+        images: ["13.jpg", "14.jpg", "15.jpg"],
+      },
+      {
+        text: ["_____ فإذا جاء استعدّوا "],
+        missing: "للعمل",
+        options: ["للعب", "للغناء", "للعمل"],
+        missingImage: "16.jpg",
+        images: ["16.jpg", "17.jpg", "18.jpg"],
+      },
+    ],
+  },
 ];
