@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import { useAnimation, motion } from "framer-motion";
 import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
@@ -18,7 +18,10 @@ export default function LevelPopup({
   onFailure: () => void;
   levelParam: number;
 }) {
-  const data = SECOND_YEAR_GAME_DATA.find((g) => g.level === levelParam);
+  const data = useMemo(
+    () => SECOND_YEAR_GAME_DATA.find((g) => g.level === levelParam),
+    [levelParam],
+  );
   const [stage, setStage] = useState<number>(0);
   const cage1Animate = useAnimation();
   const cage2Animate = useAnimation();
