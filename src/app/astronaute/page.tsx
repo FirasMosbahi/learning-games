@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import LevelPopup from "@learning-game/components/astronaute/level-popup";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { sleep } from "@learning-game/utils/sleep";
 import { useAnimation, motion } from "framer-motion";
 import { PageProps } from "@learning-game/types/page-props";
 import FailPopup from "@learning-game/components/general/FailPopup";
 import SuccessPopup from "@learning-game/components/general/SuccessPopup";
+import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
 
 const planetsPositions = [
   {
@@ -66,6 +67,15 @@ export default function Page(props: PageProps) {
   const [isWinner, setIsWinner] = useState<boolean>(false);
   const [isFailed, setIsFailed] = useState<boolean>(false);
   const shipAnimate = useAnimation();
+  const data = useMemo(
+    () =>
+      SECOND_YEAR_GAME_DATA.find(
+        (g) =>
+          g.level ===
+          Number.parseInt((props.searchParams.level ?? "0") as string),
+      ).data[level],
+    [props.searchParams.level, level],
+  );
   async function initialize() {
     setShowLevels(false);
     await sleep(3000);
@@ -117,12 +127,9 @@ export default function Page(props: PageProps) {
       <SuccessPopup show={isWinner} onClose={() => setIsWinner(false)} />
       {showLevels && (
         <LevelPopup
-          levelParam={Number.parseInt(
-            (props.searchParams.level ?? "0") as string,
-          )}
+          data={data}
           onFailure={() => setIsFailed(true)}
           onSuccess={onLevelSuccess}
-          level={level}
         />
       )}
       {planets.map((p, i) => (

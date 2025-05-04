@@ -1,32 +1,26 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useAnimation, motion } from "framer-motion";
-import { SECOND_YEAR_GAME_DATA } from "@learning-game/data/second-year-game-data";
+import { OptionMultiSelectType } from "@learning-game/types/option-select-type";
 
 const colorPalette = ["#B5B4D9", "#9CD3D9", "#F2D5CE", "#D0D991"];
 
 export default function LevelPopup({
-  level,
   onSuccess,
   onFailure,
-  levelParam,
+  data,
 }: {
-  level: number;
   onSuccess: () => void;
   onFailure: () => void;
-  levelParam: number;
+  data: OptionMultiSelectType;
 }) {
-  const data = useMemo(
-    () => SECOND_YEAR_GAME_DATA.find((g) => g.level === levelParam),
-    [levelParam],
-  );
   const [stage, setStage] = useState<number>(0);
   const cage1Animate = useAnimation();
   const cage2Animate = useAnimation();
   async function onClick(option: string) {
-    if (option === data.data[level].options[stage].missing) {
+    if (option === data.options[stage].missing) {
       if (stage === 0) {
         await cage1Animate.start({ opacity: 0 }, { duration: 1 });
         setStage(1);
@@ -46,12 +40,12 @@ export default function LevelPopup({
       <div className="flex flex-row justify-between gap-[20%]">
         <div className="stage w-[50%] flex flex-col items-center justify-center gap-8 py-32">
           <div className="text-black text-3xl grid grid-cols-2 gap-y-4 gap-x-8">
-            {data.data[level].text.map((t, i) => (
+            {data.text.map((t, i) => (
               <p key={i}>{t}</p>
             ))}
           </div>
           <div className="grid grid-cols-2 gap-12">
-            {data.data[level].options[stage].options.map((option, i) => (
+            {data.options[stage].options.map((option, i) => (
               <button
                 className="text-3xl px-8 py-2 border border-solid border-transparent rounded-xl"
                 style={{ backgroundColor: colorPalette[i] }}
